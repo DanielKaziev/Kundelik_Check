@@ -1029,10 +1029,3 @@ function CallOneFO() {
         document.getElementById("new-container").removeAttribute("hidden", "hidden");
     }
 }
-function hlw() {
-    var audio = new Audio();
-    audio.src = "snd.mp3";
-	audio.autoplay = true;
-    audio.volume = 1;
-    document.getElementById("hlwn").removeAttribute("onclick", "hlw()");
-}
