@@ -371,17 +371,27 @@ a:hover{
         width: auto;
     }
 }
-.qws{
-    display: inline-block;
-    font-size: 13px;
-    font-weight: 500;
-    vertical-align: top;
-    border: 0.7px solid #666;
-    color: #666;
-    width: 14px;
-    height: 14px;
-    border-radius: 90px;
-    line-height: 13.5px;
-    cursor: help;
-    font-family: 'Roboto', sans-serif;
+.input-op{
+    width: 50px;
+    height: 27px;
+    font-size: 20px;
+    text-align: center;
+    background: none;
+    border: none;
+    margin-left: -5px;
 }
+input.input-op::placeholder{
+    color: black;
+}
+.help-op{
+    text-align: left;
+    margin-left: -5px;
+}
+input:disabled::placeholder{
+    color: rgba(0, 0, 0, 0);
+}
+input:disabled{
+    background: url(cross.png);
+    background-repeat: no-repeat;
+    background-position: center;
+} 

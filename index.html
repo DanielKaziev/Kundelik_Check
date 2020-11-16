@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, shrink-to-fit=no">
     <link rel="icon" href="https://static.kundelik.kz/img/icons/favicon_Kz.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,300&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="main.css">
     <script src="main.js"></script>
@@ -44,40 +43,49 @@
             <div class="row new-pln">
                 <div class="col-6 col-md-3 input-main">
                     <div class="input-main-text">Сумма ФО</div>
-                    <!-- <span id="qws-sum" class="qws">?</span> -->
                     <div id="percent-new" class="input">
-                        <input onchange="NewPlan()" id="sum" type="number" min="0" max="1000" placeholder="–" class="input-in-new">
+                        <input onchange="FOPlan()" id="sum" type="number" min="0" max="1000" placeholder="–" class="input-in-new">
                     </div>
                 </div>
                 <div class="col-6 col-md-3 input-main">
                     <div class="input-main-text">Кол-во ФО</div>
                     <div class="input">
-                        <input onchange="NewPlan()" id="quan" type="number" min="0" max="1000" placeholder="–" class="input-in-new">
+                        <input onchange="FOPlan()" id="quan" type="number" min="0" max="1000" placeholder="–" class="input-in-new">
                     </div>
                 </div>
                 <div class="col-6 col-md-3 input-main">
                     <div class="input-main-text">СОР</div>
                     <div id="sor-new" class="input">
-                        <input onchange="NewPlan()" id="sor1-new" type="number" min="0" max="100" placeholder="–" class="input-in">
+                        <input onchange="FOPlan()" id="sor1-new" type="number" min="0" max="100" placeholder="–" class="input-in">
                         <span class="slash-input">/</span>
-                        <input onchange="NewPlan()" id="sor2-new" type="number" min="0" max="100" placeholder="–" class="input-in">
+                        <input onchange="FOPlan()" id="sor2-new" type="number" min="0" max="100" placeholder="–" class="input-in">
                     </div>
                 </div>
                 <div class="col-6 col-md-3 input-main">
                     <div class="input-main-text">СОЧ</div>
                     <div id="soch-new" class="input">
-                        <input onchange="NewPlan()" id="soch1-new" type="number" min="0" max="100" placeholder="–" class="input-in">
+                        <input onchange="FOPlan()" id="soch1-new" type="number" min="0" max="100" placeholder="–" class="input-in">
                         <span class="slash-input">/</span>
-                        <input onchange="NewPlan()" id="soch2-new" type="number" min="0" max="100" placeholder="–" class="input-in">
+                        <input onchange="FOPlan()" id="soch2-new" type="number" min="0" max="100" placeholder="–" class="input-in">
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-6 sor">
+                <div id="op-one" class="col-6 sor">
+                    <span class="op-text">За 1 ОП: </span>
+                    <input onchange="FOPlan()" id="op-in-new" step="0.1" type="number" min="0" max="50" placeholder="–" class="input-op">
+                    <span class="help-op">%</span>
+                </div>
+                <div id="op-two" hidden class="col-6 sor">
                     <span class="op-text">За 1 ОП: </span>
                     <span id="op-out-new">0.0%</span>
                 </div>
-                <div class="col-6 soch">
+                <div id="soch-one" class="col-6 soch">
+                    <span class="soch-text">% СОЧ: </span>
+                    <input onchange="FOPlan()" id="soch-in-new" step="0.1" type="number" min="0" max="50" placeholder="–" class="input-op">
+                    <span class="help-op">%</span>
+                </div>
+                <div id="soch-two" hidden class="col-6 soch">
                     <span class="soch-text">% СОЧ: </span>
                     <span id="soch-out-new">0.0%</span>
                 </div>
