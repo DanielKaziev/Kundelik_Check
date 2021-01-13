@@ -1189,10 +1189,3 @@ function FOPlan() {
     }
     CheckIsEmpty();
 }
-function Xmas() {
-    var audio = new Audio();
-    audio.src = "snd.mp3"; 
-    audio.autoplay = true;
-    audio.volume = 1;
-    document.getElementById("xmassnd").removeAttribute("onclick", "Xmas()");
-}
