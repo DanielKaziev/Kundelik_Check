@@ -104,75 +104,6 @@
         </div>
     </form>
     <form>
-        <div hidden id="main-container" class="container">
-            <div id="main-content" class="row">
-                <div class="col-6 col-md-3 input-main">
-                    <div class="input-main-text">СОР<span class="sub">1</span></div>
-                    <div id="sor_1" class="input">
-                        <input onchange="Main()" id="sor1" type="number" min="0" max="100" placeholder="–" class="input-in">
-                        <span class="slash-input">/</span>
-                        <input onchange="Main()" id="sor2" type="number" min="0" max="100" placeholder="–" class="input-in">
-                    </div>
-                </div>
-                <div class="col-6 col-md-3 input-main">
-                    <div class="input-main-text">СОР<span class="sub">2</span></div>
-                    <div id="sor_2" class="input">
-                        <input onchange="Main()" id="sor3" type="number" min="0" max="100" placeholder="–" class="input-in">
-                        <span class="slash-input">/</span>
-                        <input onchange="Main()" id="sor4" type="number" min="0" max="100" placeholder="–" class="input-in">
-                    </div>
-                </div>
-                <div class="col-6 col-md-3 input-main">
-                    <div class="input-main-text">СОР<span class="sub">3</span></div>
-                    <div id="sor_3" class="input">
-                        <input onchange="Main()" id="sor5" type="number" min="0" max="100" placeholder="–" class="input-in">
-                        <span class="slash-input">/</span>
-                        <input onchange="Main()" id="sor6" type="number" min="0" max="100" placeholder="–" class="input-in">
-                    </div>
-                </div>
-                <div class="col-6 col-md-3 input-main">
-                    <div class="input-main-text">СОР<span class="sub">4</span></div>
-                    <div id="sor_4" class="input">
-                        <input onchange="Main()" id="sor7" type="number" min="0" max="100" placeholder="–" class="input-in">
-                        <span class="slash-input">/</span>
-                        <input onchange="Main()" id="sor8" type="number" min="0" max="100" placeholder="–" class="input-in">
-                    </div> 
-                </div>
-            </div>
-            <div id="soch-so" class="row">
-                <div class="col-12 input-main">
-                    <div class="input-main-text">СОЧ</div>
-                    <div id="soch_1" class="input">
-                        <input onchange="Main()" id="soch1" type="number" min="0" max="100" placeholder="–" class="input-in">
-                        <span class="slash-input">/</span>
-                        <input onchange="Main()" id="soch2" type="number" min="0" max="100" placeholder="–" class="input-in">
-                    </div> 
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6 sor">
-                    <span class="sor-text">% СОР: </span>
-                    <span id="sor-out">0.0%</span>
-                </div>
-                <div class="col-6 soch">
-                    <span class="soch-text">% СОЧ: </span>
-                    <span id="soch-out">0.0%</span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 summa">
-                    <span class="soch-text">% Сумма: </span>
-                    <span id="summa-out">0%</span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 output">
-                    <span id="output-text"></span>   
-                </div>
-            </div>
-        </div>
-    </form>
-    <form>
         <div hidden id="so-container" class="container">
             <div id="main-so" class="row">
                 <div class="col-12 input-main">
@@ -219,20 +150,6 @@
     <footer class="footer">
         <div class="row grade">
             <div class="col-6 left">
-                <div class="all box-old">
-                    <input onchange="CallFirstGrade()" type="checkbox" class="custom-checkbox" id="first-grade" name="first-grade" value="yes">
-                    <label for="first-grade">1 класс</label>
-                </div>
-            </div>
-            <div class="col-6 right">
-                <div class="all box">
-                    <input onchange="CallOldGrade()" type="checkbox" class="custom-checkbox" id="old-grade" name="old-grade" value="yes">
-                    <label for="old-grade">С.П.О.</label>
-                </div>
-            </div>
-        </div>
-        <div class="row grade">
-            <div class="col-6 left">
                 <div class="all box-fo">
                     <input onchange="CallOneFO()" type="checkbox" class="custom-checkbox" id="fo-pln" name="fo-pln" value="yes">
                     <label for="fo-pln">За 1 ФО</label>
@@ -243,11 +160,6 @@
                     <input onchange="CallOneSO()" type="checkbox" class="custom-checkbox" id="sor/soch" name="sor/soch" value="yes">
                     <label for="sor/soch">За 1 СО</label>
                 </div>
-            </div>
-        </div>
-        <div class="row vk-grp">
-            <div class="col-12">
-                <a href="https://vk.com/kundelik_check" target="_blank"><div class="vk">Группа ВКонтакте</div></a>
             </div>
         </div>
         <div class="container">
