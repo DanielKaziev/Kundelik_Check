@@ -1,19 +1,34 @@
 function CheckIsEmpty() {
-    let sum = document.getElementById("sum").value;
-    let quan = document.getElementById("quan").value;
-    let sor1_new = document.getElementById("sor1-new").value;
-    let sor2_new = document.getElementById("sor2-new").value;
-    let soch1_new = document.getElementById("soch1-new").value;
-    let soch2_new = document.getElementById("soch2-new").value;
-    let op_in_new = document.getElementById("op-in-new").value;
-    let soch_in_new = document.getElementById("soch-in-new").value;
-    if (sum == "" && quan == "" && sor1_new == "" && sor2_new == "" && soch1_new == "" && soch2_new == "" && op_in_new == "" && soch_in_new == "") {
+    let sum = Number(document.getElementById("sum").value);
+    let quan = Number(document.getElementById("quan").value);
+    let sor1 = Number(document.getElementById("sor1").value);
+    let sor2 = Number(document.getElementById("sor2").value);
+    let sor3 = Number(document.getElementById("sor3").value);
+    let sor4 = Number(document.getElementById("sor4").value);
+    let sor5 = Number(document.getElementById("sor5").value);
+    let sor6 = Number(document.getElementById("sor6").value);
+    let sor7 = Number(document.getElementById("sor7").value);
+    let sor8 = Number(document.getElementById("sor8").value);
+    let soch1_new = Number(document.getElementById("soch1-new").value);
+    let soch2_new = Number(document.getElementById("soch2-new").value);
+    let op_in_new = Number(document.getElementById("op-in-new").value);
+    let soch_in_new = Number(document.getElementById("soch-in-new").value);
+    if (sum == "" && quan == "" && sor1 == "" && sor2 == "" && sor3 == "" && sor4 == "" && sor5 == "" && sor6 == "" && sor7 == "" & sor8 == "" & soch1_new == "" && soch2_new == "" && op_in_new == "" && soch_in_new == "") {
         let output_text_new = document.getElementById("output-text-new");
         output_text_new.innerHTML = "";
         output_text_new.removeAttribute('style');
     }
-    if (sor1_new == "" && sor2_new == "") {
-        document.getElementById("sor-new").style.backgroundColor = "#c2d23a";
+    if (sor1 == "" && sor2 == "") {
+        document.getElementById("sor_1").style.backgroundColor = "#c2d23a";
+    }
+    if (sor3 == "" && sor4 == "") {
+        document.getElementById("sor_2").style.backgroundColor = "#c2d23a";
+    }
+    if (sor5 == "" && sor6 == "") {
+        document.getElementById("sor_3").style.backgroundColor = "#c2d23a";
+    }
+    if (sor7 == "" && sor8 == "") {
+        document.getElementById("sor_4").style.backgroundColor = "#c2d23a";
     }
     if (soch1_new == "" && soch2_new == "") {
         document.getElementById("soch-new").style.backgroundColor = "#c2d23a";
@@ -307,11 +322,58 @@ function CallOneFO() {
     }
 }
 
+function enableSum() {
+    document.getElementById("sum").disabled = false;
+    document.getElementById("quan").disabled = false;
+    document.getElementById("sor1").disabled = false;
+    document.getElementById("sor2").disabled = false;
+    document.getElementById("sor3").disabled = false;
+    document.getElementById("sor4").disabled = false;
+    document.getElementById("sor5").disabled = false;
+    document.getElementById("sor6").disabled = false;
+    document.getElementById("sor7").disabled = false;
+    document.getElementById("sor8").disabled = false;
+    document.getElementById("op-two").removeAttribute("hidden", "hidden");
+    document.getElementById("op-one").setAttribute("hidden", "hidden");
+}
+function disableSum() {
+    document.getElementById("sum").disabled = true;
+    document.getElementById("quan").disabled = true;
+    document.getElementById("sor1").disabled = true;
+    document.getElementById("sor2").disabled = true;
+    document.getElementById("sor3").disabled = true;
+    document.getElementById("sor4").disabled = true;
+    document.getElementById("sor5").disabled = true;
+    document.getElementById("sor6").disabled = true;
+    document.getElementById("sor7").disabled = true;
+    document.getElementById("sor8").disabled = true;
+    document.getElementById("op-one").removeAttribute("hidden", "hidden");
+    document.getElementById("op-two").setAttribute("hidden", "hidden");
+}
+function enableSoch() {
+    document.getElementById("soch1-new").disabled = false;
+    document.getElementById("soch2-new").disabled = false;
+    document.getElementById("soch-two").removeAttribute("hidden", "hidden");
+    document.getElementById("soch-one").setAttribute("hidden", "hidden");
+}
+function disableSoch() {
+    document.getElementById("soch1-new").disabled = true;
+    document.getElementById("soch2-new").disabled = true;
+    document.getElementById("soch-one").removeAttribute("hidden", "hidden");
+    document.getElementById("soch-two").setAttribute("hidden", "hidden");
+}
+
 function FOPlan() {
     var sum = Number(document.getElementById("sum").value);
     var quan = Number(document.getElementById("quan").value);
-    var sor1_new = Number(document.getElementById("sor1-new").value);
-    var sor2_new = Number(document.getElementById("sor2-new").value);
+    var sor1 = Number(document.getElementById("sor1").value);
+    var sor2 = Number(document.getElementById("sor2").value);
+    var sor3 = Number(document.getElementById("sor3").value);
+    var sor4 = Number(document.getElementById("sor4").value);
+    var sor5 = Number(document.getElementById("sor5").value);
+    var sor6 = Number(document.getElementById("sor6").value);
+    var sor7 = Number(document.getElementById("sor7").value);
+    var sor8 = Number(document.getElementById("sor8").value);
     var soch1_new = Number(document.getElementById("soch1-new").value);
     var soch2_new = Number(document.getElementById("soch2-new").value);
     var op_in_new = Number(document.getElementById("op-in-new").value);
@@ -320,23 +382,22 @@ function FOPlan() {
     var soch_out_new = document.getElementById("soch-out-new");
     var summa_out_new = document.getElementById("summa-out-new");
     var output_text_new = document.getElementById("output-text-new");
-    var sum_op = sum + quan + sor1_new + sor2_new;
+    
+    var prem1 = [sor1, sor3, sor5, sor7,];
+    var prem2 = [sor2, sor4, sor6, sor8,]; 
+    var prem1_checked = Number(prem1.reduce((a, b,) => a + b));
+    var prem2_checked = Number(prem2.reduce((a, b,) => a + b));
+    
+    var sum_op = sum + quan + prem1_checked + prem2_checked;
     var sum_soch = soch1_new + soch2_new;
 
+    
     if (sum_op > 0 && sum_soch > 0) {
-        document.getElementById("op-two").removeAttribute("hidden", "hidden");
-        document.getElementById("op-one").setAttribute("hidden", "hidden");
-        document.getElementById("soch-two").removeAttribute("hidden", "hidden");
-        document.getElementById("soch-one").setAttribute("hidden", "hidden");
-        document.getElementById("sum").disabled = false;
-        document.getElementById("quan").disabled = false;
-        document.getElementById("sor1-new").disabled = false;
-        document.getElementById("sor2-new").disabled = false;
-        document.getElementById("soch1-new").disabled = false;
-        document.getElementById("soch2-new").disabled = false;
+        enableSum();
+        enableSoch();
 
         var quan_resilt = quan * 10;
-        var op_result = ((sor1_new + sum) / (sor2_new + quan_resilt)) * 50;
+        var op_result = ((prem1_checked + sum) / (prem2_checked + quan_resilt)) * 50;
 
         if (isNaN(op_result) == true || isFinite(op_result) == false){
             op_out_new.innerHTML = "0.0%";
@@ -360,19 +421,11 @@ function FOPlan() {
         summa_out_new.innerHTML = result_fix_new + "%";
 
     } else if (sum_op > 0 && soch_in_new > 0) {
-        document.getElementById("op-two").removeAttribute("hidden", "hidden");
-        document.getElementById("op-one").setAttribute("hidden", "hidden");
-        document.getElementById("soch-one").removeAttribute("hidden", "hidden");
-        document.getElementById("soch-two").setAttribute("hidden", "hidden");
-        document.getElementById("sum").disabled = false;
-        document.getElementById("quan").disabled = false;
-        document.getElementById("sor1-new").disabled = false;
-        document.getElementById("sor2-new").disabled = false;
-        document.getElementById("soch1-new").disabled = true;
-        document.getElementById("soch2-new").disabled = true;
+        enableSum();
+        disableSoch();
 
         var quan_resilt = quan * 10;
-        var op_result = ((sor1_new + sum) / (sor2_new + quan_resilt)) * 50;
+        var op_result = ((prem1_checked + sum) / (prem2_checked + quan_resilt)) * 50;
 
         if (isNaN(op_result) == true || isFinite(op_result) == false){
             op_out_new.innerHTML = "0.0%";
@@ -387,16 +440,8 @@ function FOPlan() {
         summa_out_new.innerHTML = result_fix_new + "%";
 
     } else if (op_in_new > 0 && sum_soch > 0) {
-        document.getElementById("op-one").removeAttribute("hidden", "hidden");
-        document.getElementById("op-two").setAttribute("hidden", "hidden");
-        document.getElementById("soch-two").removeAttribute("hidden", "hidden");
-        document.getElementById("soch-one").setAttribute("hidden", "hidden");
-        document.getElementById("sum").disabled = true;
-        document.getElementById("quan").disabled = true;
-        document.getElementById("sor1-new").disabled = true;
-        document.getElementById("sor2-new").disabled = true;
-        document.getElementById("soch1-new").disabled = false;
-        document.getElementById("soch2-new").disabled = false;
+        disableSum();
+        enableSoch();
 
         var result_soch_new = (soch1_new / soch2_new) * 50
         if (isNaN(result_soch_new) == true || isFinite(result_soch_new) == false){
@@ -412,35 +457,20 @@ function FOPlan() {
         summa_out_new.innerHTML = result_fix_new + "%";
 
     } else if (op_in_new > 0 && soch_in_new > 0) {
-        document.getElementById("op-one").removeAttribute("hidden", "hidden");
-        document.getElementById("op-two").setAttribute("hidden", "hidden");
-        document.getElementById("soch-one").removeAttribute("hidden", "hidden");
-        document.getElementById("soch-two").setAttribute("hidden", "hidden");
-        document.getElementById("sum").disabled = true;
-        document.getElementById("quan").disabled = true;
-        document.getElementById("sor1-new").disabled = true;
-        document.getElementById("sor2-new").disabled = true;
-        document.getElementById("soch1-new").disabled = true;
-        document.getElementById("soch2-new").disabled = true;
+        disableSum();
+        disableSoch();
 
         let result_new = Number((op_in_new + soch_in_new).toFixed(1));
         var result_fix_new = result_new.toFixed();
         summa_out_new.innerHTML = result_fix_new + "%";
 
-    } else if (document.getElementById("sum").value.length > 0 || document.getElementById("quan").value.length > 0 || document.getElementById("sor1-new").value.length > 0 || document.getElementById("sor2-new").value.length > 0) {
-        document.getElementById("op-two").removeAttribute("hidden", "hidden");
-        document.getElementById("op-one").setAttribute("hidden", "hidden");
+    } else if (document.getElementById("sum").value.length > 0 || document.getElementById("quan").value.length > 0 || document.getElementById("sor1").value.length > 0 || document.getElementById("sor2").value.length > 0 || document.getElementById("sor3").value.length > 0 || document.getElementById("sor4").value.length > 0 || document.getElementById("sor5").value.length > 0 || document.getElementById("sor6").value.length > 0 || document.getElementById("sor7").value.length > 0 || document.getElementById("sor8").value.length > 0) {
+        enableSum();
         document.getElementById("soch-one").removeAttribute("hidden", "hidden");
         document.getElementById("soch-two").setAttribute("hidden", "hidden");
-        document.getElementById("sum").disabled = false;
-        document.getElementById("quan").disabled = false;
-        document.getElementById("sor1-new").disabled = false;
-        document.getElementById("sor2-new").disabled = false;
-        document.getElementById("soch1-new").disabled = false;
-        document.getElementById("soch2-new").disabled = false;
 
         var quan_resilt = quan * 10;
-        var op_result = ((sor1_new + sum) / (sor2_new + quan_resilt)) * 50;
+        var op_result = ((prem1_checked + sum) / (prem2_checked + quan_resilt)) * 50;
 
         if (isNaN(op_result) == true || isFinite(op_result) == false){
             op_out_new.innerHTML = "0.0%";
@@ -454,16 +484,7 @@ function FOPlan() {
         summa_out_new.innerHTML = result_fix_new + "%";
 
     } else if (document.getElementById("soch1-new").value.length > 0 || document.getElementById("soch2-new").value.length > 0) {
-        document.getElementById("op-one").removeAttribute("hidden", "hidden");
-        document.getElementById("op-two").setAttribute("hidden", "hidden");
-        document.getElementById("soch-two").removeAttribute("hidden", "hidden");
-        document.getElementById("soch-one").setAttribute("hidden", "hidden");
-        document.getElementById("sum").disabled = false;
-        document.getElementById("quan").disabled = false;
-        document.getElementById("sor1-new").disabled = false;
-        document.getElementById("sor2-new").disabled = false;
-        document.getElementById("soch1-new").disabled = false;
-        document.getElementById("soch2-new").disabled = false;
+        enableSoch();
 
         var result_soch_new = (soch1_new / soch2_new) * 50
         if (isNaN(result_soch_new) == true || isFinite(result_soch_new) == false){
@@ -479,31 +500,12 @@ function FOPlan() {
         summa_out_new.innerHTML = result_fix_new + "%";
 
     } else if (op_in_new > 0) {
-        document.getElementById("op-one").removeAttribute("hidden", "hidden");
-        document.getElementById("op-two").setAttribute("hidden", "hidden");
-        document.getElementById("soch-one").removeAttribute("hidden", "hidden");
-        document.getElementById("soch-two").setAttribute("hidden", "hidden");
-        document.getElementById("sum").disabled = true;
-        document.getElementById("quan").disabled = true;
-        document.getElementById("sor1-new").disabled = true;
-        document.getElementById("sor2-new").disabled = true;
-        document.getElementById("soch1-new").disabled = false;
-        document.getElementById("soch2-new").disabled = false;
-
+        disableSum();
         var result_fix_new = Number(op_in_new);
         summa_out_new.innerHTML = result_fix_new.toFixed() + "%";
 
     } else if (soch_in_new > 0) {
-        document.getElementById("op-one").removeAttribute("hidden", "hidden");
-        document.getElementById("op-two").setAttribute("hidden", "hidden");
-        document.getElementById("soch-one").removeAttribute("hidden", "hidden");
-        document.getElementById("soch-two").setAttribute("hidden", "hidden");
-        document.getElementById("sum").disabled = false;
-        document.getElementById("quan").disabled = false;
-        document.getElementById("sor1-new").disabled = false;
-        document.getElementById("sor2-new").disabled = false;
-        document.getElementById("soch1-new").disabled = true;
-        document.getElementById("soch2-new").disabled = true;
+        disableSoch();
 
         var result_fix_new = Number(soch_in_new);
         summa_out_new.innerHTML = result_fix_new.toFixed() + "%";
@@ -515,8 +517,14 @@ function FOPlan() {
         document.getElementById("soch-two").setAttribute("hidden", "hidden");
         document.getElementById("sum").disabled = false;
         document.getElementById("quan").disabled = false;
-        document.getElementById("sor1-new").disabled = false;
-        document.getElementById("sor2-new").disabled = false;
+        document.getElementById("sor1").disabled = false;
+        document.getElementById("sor2").disabled = false;
+        document.getElementById("sor3").disabled = false;
+        document.getElementById("sor4").disabled = false;
+        document.getElementById("sor5").disabled = false;
+        document.getElementById("sor6").disabled = false;
+        document.getElementById("sor7").disabled = false;
+        document.getElementById("sor8").disabled = false;
         document.getElementById("soch1-new").disabled = false;
         document.getElementById("soch2-new").disabled = false;
 
@@ -555,6 +563,26 @@ function FOPlan() {
         let metaThemeColorAndroid = document.querySelector("meta[name=theme-color]");
         metaThemeColorAndroid.setAttribute("content", "#ff6666");
     }
-
     CheckIsEmpty();
+    checkSors(sor1,sor2,"sor_1");
+    checkSors(sor3,sor4,"sor_2");
+    checkSors(sor5,sor6,"sor_3");
+    checkSors(sor7,sor8,"sor_4");
+    checkSors(soch1_new,soch2_new,"soch-new");
+}
+function checkSors(sor1,sor2,id) {
+    var checked = ((sor1/sor2)*100).toFixed();
+    if (checked < 0) { 
+        document.getElementById(id).style.backgroundColor = "#ff6666";
+    } else if (checked >= 0 && checked < 40) {
+        document.getElementById(id).style.backgroundColor = "#ff6666";
+    } else if (checked >= 40 && checked < 65) {
+        document.getElementById(id).style.backgroundColor = "#f9a23b";
+    } else if (checked >= 65 && checked < 85){
+        document.getElementById(id).style.backgroundColor = "#c2d23a";
+    } else if (checked >= 85 && checked <= 100) {
+        document.getElementById(id).style.backgroundColor = "#c2d23a";
+    } else if (checked == isFinite(checked) || checked == isNaN(checked)){
+        document.getElementById(id).style.backgroundColor = "#c2d23a";
+    }
 }
