@@ -501,11 +501,28 @@ function FOPlan() {
 
     } else if (op_in_new > 0) {
         disableSum();
+        document.getElementById("soch1-new").disabled = false;
+        document.getElementById("soch2-new").disabled = false;
+        document.getElementById("soch-one").removeAttribute("hidden", "hidden");
+        document.getElementById("soch-two").setAttribute("hidden", "hidden");
+
         var result_fix_new = Number(op_in_new);
         summa_out_new.innerHTML = result_fix_new.toFixed() + "%";
 
     } else if (soch_in_new > 0) {
         disableSoch();
+        document.getElementById("op-one").removeAttribute("hidden", "hidden");
+        document.getElementById("op-two").setAttribute("hidden", "hidden");
+        document.getElementById("sum").disabled = false;
+        document.getElementById("quan").disabled = false;
+        document.getElementById("sor1").disabled = false;
+        document.getElementById("sor2").disabled = false;
+        document.getElementById("sor3").disabled = false;
+        document.getElementById("sor4").disabled = false;
+        document.getElementById("sor5").disabled = false;
+        document.getElementById("sor6").disabled = false;
+        document.getElementById("sor7").disabled = false;
+        document.getElementById("sor8").disabled = false;
 
         var result_fix_new = Number(soch_in_new);
         summa_out_new.innerHTML = result_fix_new.toFixed() + "%";
