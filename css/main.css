@@ -20,7 +20,7 @@ html{
     min-height: 100%;
 }
 body{
-    background: url(/img/bg.png) repeat;
+    background: url(/Kundelik_Check/img/bg.png) repeat;
     margin-bottom: 60px;
 }
 a:hover{
@@ -389,7 +389,7 @@ input:disabled::placeholder{
     color: rgba(0, 0, 0, 0);
 }
 input:disabled{
-    background: url(/img/cross.png);
+    background: url(/Kundelik_Check/img/cross.png);
     background-repeat: no-repeat;
     background-position: center;
 } 
