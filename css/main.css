@@ -20,7 +20,7 @@ html{
     min-height: 100%;
 }
 body{
-    background: url(/Kundelik_Check/img/bg.png) repeat;
+    background: url(/img/bg.png) repeat;
     margin-bottom: 60px;
 }
 a:hover{
