@@ -20,11 +20,14 @@
         rope.innerHTML = "<li></li>".repeat(BULBS);
         document.body.prepend(canvas, rope);
 
-        const script = document.createElement("script");
-        script.src = DIR + "confetti.js";
-        document.body.appendChild(script);
+        if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            const script = document.createElement("script");
+            script.src = DIR + "confetti.js";
+            document.body.appendChild(script);
+        }
 
-        document.querySelector(".menu-logo img").addEventListener("click", () => new Audio(DIR + "snd.mp3").play(), { once: true });
+        const logo = document.querySelector(".menu-logo img");
+        if (logo) logo.addEventListener("click", () => new Audio(DIR + "snd.mp3").play().catch(() => {}), { once: true });
     }
 
     if (typeof module !== "undefined" && module.exports) module.exports = { isNewYearWindow };

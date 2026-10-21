@@ -1,127 +1,66 @@
-(function() {
-  var COLORS, Confetti, NUM_CONFETTI, PI_2, canvas, confetti, context, drawCircle, i, range, resizeWindow, xpos;
+(function () {
+    const COLORS = [[85, 71, 106], [174, 61, 99], [219, 56, 83], [244, 92, 68], [248, 182, 70]];
+    const SPEED = 0.3;
+    const width = window.screen.width;
+    const COUNT = width < 500 ? 8 : width < 1000 ? 15 : width < 1500 ? 18 : 25;
 
-  if (window.screen.width < 500) {
-    NUM_CONFETTI = 15;
-  } else if (window.screen.width >= 500 && window.screen.width < 1000) {
-    NUM_CONFETTI = 30;
-  } else if (window.screen.width >= 1000 && window.screen.width < 1500) {
-    NUM_CONFETTI = 35;
-  } else if (window.screen.width >= 1500) {
-    NUM_CONFETTI = 50;
-  } else {
-    NUM_CONFETTI = 30;
-  }
+    const canvas = document.getElementById("world");
+    const ctx = canvas.getContext("2d");
+    let w = 0, h = 0, xpos = 0.5;
 
-  NUM_CONFETTI = Math.round(NUM_CONFETTI / 2);
+    const range = (a, b) => (b - a) * Math.random() + a;
 
-  COLORS = [[85, 71, 106], [174, 61, 99], [219, 56, 83], [244, 92, 68], [248, 182, 70]];
-
-  PI_2 = 2 * Math.PI;
-
-  const SPEED = 0.3;
-
-  canvas = document.getElementById("world");
-
-  context = canvas.getContext("2d");
-
-  window.w = 0;
-
-  window.h = 0;
-
-  resizeWindow = function() {
-    window.w = canvas.width = window.innerWidth;
-    return window.h = canvas.height = window.innerHeight;
-  };
-
-  window.addEventListener('resize', resizeWindow, false);
-
-  resizeWindow();
-
-  range = function(a, b) {
-    return (b - a) * Math.random() + a;
-  };
-
-  drawCircle = function(x, y, r, style) {
-    context.beginPath();
-    context.arc(x, y, r, 0, PI_2, false);
-    context.fillStyle = style;
-    return context.fill();
-  };
-
-  xpos = 0.5;
-
-  document.onmousemove = function(e) {
-    return xpos = e.pageX / w;
-  };
-
-  window.requestAnimationFrame = (function() {
-    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(callback) {
-      return window.setTimeout(callback, 1000 / 60);
-    };
-  })();
-
-  Confetti = class Confetti {
-    constructor() {
-      this.style = COLORS[~~range(0, 5)];
-      this.rgb = `rgba(${this.style[0]},${this.style[1]},${this.style[2]}`;
-      this.r = ~~range(2, 6);
-      this.r2 = 2 * this.r;
-      this.replace();
+    function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
     }
 
-    replace() {
-      this.opacity = 0;
-      this.dop = 0.01 * range(1, 4);
-      this.x = range(-this.r2, w - this.r2);
-      this.y = range(-20, h - this.r2);
-      this.xmax = w - this.r;
-      this.ymax = h - this.r;
-      this.vx = SPEED * (range(0, 2) + 8 * xpos - 5);
-      return this.vy = SPEED * (0.7 * this.r + range(-1, 1));
+    class Confetti {
+        constructor() {
+            const [r, g, b] = COLORS[Math.floor(range(0, COLORS.length))];
+            this.rgb = `rgba(${r},${g},${b}`;
+            this.r = Math.floor(range(2, 6));
+            this.replace();
+        }
+
+        replace() {
+            this.opacity = 0;
+            this.dop = 0.01 * range(1, 4);
+            this.x = range(-2 * this.r, w - 2 * this.r);
+            this.y = range(-20, h - 2 * this.r);
+            this.xmax = w - this.r;
+            this.ymax = h - this.r;
+            this.vx = SPEED * (range(0, 2) + 8 * xpos - 5);
+            this.vy = SPEED * (0.7 * this.r + range(-1, 1));
+        }
+
+        draw() {
+            this.x += this.vx;
+            this.y += this.vy;
+            this.opacity += this.dop;
+            if (this.opacity > 1) {
+                this.opacity = 1;
+                this.dop *= -1;
+            }
+            if (this.opacity < 0 || this.y > this.ymax) this.replace();
+            if (!(this.x > 0 && this.x < this.xmax)) this.x = (this.x + this.xmax) % this.xmax;
+            ctx.beginPath();
+            ctx.arc(Math.floor(this.x), Math.floor(this.y), this.r, 0, 2 * Math.PI);
+            ctx.fillStyle = `${this.rgb},${this.opacity})`;
+            ctx.fill();
+        }
     }
 
-    draw() {
-      var ref;
-      this.x += this.vx;
-      this.y += this.vy;
-      this.opacity += this.dop;
-      if (this.opacity > 1) {
-        this.opacity = 1;
-        this.dop *= -1;
-      }
-      if (this.opacity < 0 || this.y > this.ymax) {
-        this.replace();
-      }
-      if (!((0 < (ref = this.x) && ref < this.xmax))) {
-        this.x = (this.x + this.xmax) % this.xmax;
-      }
-      return drawCircle(~~this.x, ~~this.y, this.r, `${this.rgb},${this.opacity})`);
+    window.addEventListener("resize", resize);
+    document.addEventListener("mousemove", e => { xpos = e.pageX / w; });
+    resize();
+
+    const confetti = Array.from({ length: COUNT }, () => new Confetti());
+
+    function step() {
+        requestAnimationFrame(step);
+        ctx.clearRect(0, 0, w, h);
+        confetti.forEach(c => c.draw());
     }
-
-  };
-
-  confetti = (function() {
-    var j, ref, results;
-    results = [];
-    for (i = j = 1, ref = NUM_CONFETTI; (1 <= ref ? j <= ref : j >= ref); i = 1 <= ref ? ++j : --j) {
-      results.push(new Confetti);
-    }
-    return results;
-  })();
-
-  window.step = function() {
-    var c, j, len, results;
-    requestAnimationFrame(step);
-    context.clearRect(0, 0, w, h);
-    results = [];
-    for (j = 0, len = confetti.length; j < len; j++) {
-      c = confetti[j];
-      results.push(c.draw());
-    }
-    return results;
-  };
-
-  step();
-
-}).call(this);
+    step();
+})();
