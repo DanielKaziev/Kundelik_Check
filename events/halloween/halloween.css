@@ -1,0 +1,30 @@
+#halloween-title {
+  font-family: 'Eater', cursive;
+  font-size: 60px;
+  text-align: center;
+  margin-top: -40px;
+  margin-bottom: 25px;
+  color: #111111;
+  animation: flicker 4s 0s infinite;
+  cursor: pointer;
+}
+@media screen and (max-width: 575px) {
+  #halloween-title {
+    font-size: 50px;
+    margin-top: -20px;
+  }
+}
+@keyframes flicker {
+  0%, 6%, 12% {
+    text-shadow: none;
+    color: #111111;
+  }
+  3%, 9% {
+    text-shadow: 0 0 8px rgba(250, 103, 1, 0.6);
+    color: #fa6701;
+  }
+  60%, 100% {
+    text-shadow: 0 0 8px rgba(250, 103, 1, 0.6);
+    color: #fa6701;
+  }
+}

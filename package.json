@@ -1,0 +1,7 @@
+{
+  "name": "kundelik-check",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  }
+}
