@@ -20,7 +20,7 @@
         box.className = "container";
         box.innerHTML = '<div class="row"><div class="col-12"><h1 id="halloween-title">Happy Halloween!</h1></div></div>';
         document.querySelector(".menu").closest(".container").after(box);
-        box.querySelector("h1").addEventListener("click", () => new Audio(DIR + "snd.mp3").play(), { once: true });
+        box.querySelector("h1").addEventListener("click", () => new Audio(DIR + "snd.mp3").play().catch(() => {}), { once: true });
     }
 
     if (typeof module !== "undefined" && module.exports) module.exports = { isHalloweenWindow };

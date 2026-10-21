@@ -157,7 +157,7 @@ function onModeChange(e) {
     showMode(box.checked ? box.id.slice("mode-".length) : "new");
 }
 
-$("new-container").addEventListener("change", updateQuarter);
-$("so-container").addEventListener("change", updateSo);
-$("fo-container").addEventListener("change", updateFo);
+$("new-container").addEventListener("input", updateQuarter);
+$("so-container").addEventListener("input", updateSo);
+$("fo-container").addEventListener("input", updateFo);
 ["mode-so", "mode-fo"].forEach(id => $(id).addEventListener("change", onModeChange));

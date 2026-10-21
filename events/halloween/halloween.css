@@ -28,3 +28,8 @@
     color: #fa6701;
   }
 }
+@media (prefers-reduced-motion: reduce) {
+  #halloween-title {
+    animation: none;
+  }
+}
