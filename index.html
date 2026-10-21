@@ -2,13 +2,13 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="https://static.kundelik.kz/img/icons/favicon_Kz.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,300&display=swap">
-    <link rel="stylesheet" href="/Kundelik_Check/css/bootstrap.css">
-    <link rel="stylesheet" href="/Kundelik_Check/css/main.css">
-    <script src="/Kundelik_Check/calc.js"></script>
-    <script src="/Kundelik_Check/main.js"></script>
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script defer src="calc.js"></script>
+    <script defer src="main.js"></script>
     <title>Kundelik Check</title>
     <meta name="theme-color" content="#0273b2">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,7 +34,7 @@
     <div class="container">
         <div class="row menu">
             <div class="col-12 menu-logo">
-                <img src="/Kundelik_Check/img/logo.png" width="300px">
+                <img src="img/logo.png" width="300px">
                 <span class="menu-text">Проверь свою успеваемость!</span>
             </div>
         </div>
@@ -45,33 +45,33 @@
                 <div class="col-6 col-md-3 input-main">
                     <div class="input-main-text">СОР<span class="sub">1</span></div>
                     <div id="sor_1" class="input">
-                        <input onchange="FOPlan()" id="sor1" type="number" min="0" max="100" placeholder="–" class="input-in">
+                        <input id="sor1" type="number" min="0" max="100" placeholder="–" class="input-in">
                         <span class="slash-input">/</span>
-                        <input onchange="FOPlan()" id="sor2" type="number" min="0" max="100" placeholder="–" class="input-in">
+                        <input id="sor2" type="number" min="0" max="100" placeholder="–" class="input-in">
                     </div>
                 </div>
                 <div class="col-6 col-md-3 input-main">
                     <div class="input-main-text">СОР<span class="sub">2</span></div>
                     <div id="sor_2" class="input">
-                        <input onchange="FOPlan()" id="sor3" type="number" min="0" max="100" placeholder="–" class="input-in">
+                        <input id="sor3" type="number" min="0" max="100" placeholder="–" class="input-in">
                         <span class="slash-input">/</span>
-                        <input onchange="FOPlan()" id="sor4" type="number" min="0" max="100" placeholder="–" class="input-in">
+                        <input id="sor4" type="number" min="0" max="100" placeholder="–" class="input-in">
                     </div>
                 </div>
                 <div class="col-6 col-md-3 input-main">
                     <div class="input-main-text">СОР<span class="sub">3</span></div>
                     <div id="sor_3" class="input">
-                        <input onchange="FOPlan()" id="sor5" type="number" min="0" max="100" placeholder="–" class="input-in">
+                        <input id="sor5" type="number" min="0" max="100" placeholder="–" class="input-in">
                         <span class="slash-input">/</span>
-                        <input onchange="FOPlan()" id="sor6" type="number" min="0" max="100" placeholder="–" class="input-in">
+                        <input id="sor6" type="number" min="0" max="100" placeholder="–" class="input-in">
                     </div>
                 </div>
                 <div class="col-6 col-md-3 input-main">
                     <div class="input-main-text">СОР<span class="sub">4</span></div>
                     <div id="sor_4" class="input">
-                        <input onchange="FOPlan()" id="sor7" type="number" min="0" max="100" placeholder="–" class="input-in">
+                        <input id="sor7" type="number" min="0" max="100" placeholder="–" class="input-in">
                         <span class="slash-input">/</span>
-                        <input onchange="FOPlan()" id="sor8" type="number" min="0" max="100" placeholder="–" class="input-in">
+                        <input id="sor8" type="number" min="0" max="100" placeholder="–" class="input-in">
                     </div> 
                 </div>
             </div>
@@ -79,28 +79,28 @@
                 <div class="col-6 col-md-4 input-main">
                     <div class="input-main-text">Сумма ФО</div>
                     <div id="percent-new" class="input">
-                        <input onchange="FOPlan()" id="sum" type="number" min="0" max="1000" placeholder="–" class="input-in-new">
+                        <input id="sum" type="number" min="0" max="1000" placeholder="–" class="input-in-new">
                     </div>
                 </div>
                 <div class="col-6 col-md-4 input-main">
                     <div class="input-main-text">Кол-во ФО</div>
                     <div class="input">
-                        <input onchange="FOPlan()" id="quan" type="number" min="0" max="1000" placeholder="–" class="input-in-new">
+                        <input id="quan" type="number" min="0" max="1000" placeholder="–" class="input-in-new">
                     </div> 
                 </div>
                 <div class="col-12 col-md-4 input-main">
                     <div class="input-main-text">СОЧ</div>
                     <div id="soch-new" class="input">
-                        <input onchange="FOPlan()" id="soch1-new" type="number" min="0" max="100" placeholder="–" class="input-in">
+                        <input id="soch1-new" type="number" min="0" max="100" placeholder="–" class="input-in">
                         <span class="slash-input">/</span>
-                        <input onchange="FOPlan()" id="soch2-new" type="number" min="0" max="100" placeholder="–" class="input-in">
+                        <input id="soch2-new" type="number" min="0" max="100" placeholder="–" class="input-in">
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div id="op-one" class="col-6 sor">
                     <span class="op-text">За 1 ОП: </span>
-                    <input onchange="FOPlan()" id="op-in-new" step="0.1" type="number" min="0" max="50" placeholder="–" class="input-op">
+                    <input id="op-in-new" step="0.1" type="number" min="0" max="50" placeholder="–" class="input-op">
                     <span class="help-op">%</span>
                 </div>
                 <div id="op-two" hidden class="col-6 sor">
@@ -109,7 +109,7 @@
                 </div>
                 <div id="soch-one" class="col-6 soch">
                     <span class="soch-text">% СОЧ: </span>
-                    <input onchange="FOPlan()" id="soch-in-new" step="0.1" type="number" min="0" max="50" placeholder="–" class="input-op">
+                    <input id="soch-in-new" step="0.1" type="number" min="0" max="50" placeholder="–" class="input-op">
                     <span class="help-op">%</span>
                 </div>
                 <div id="soch-two" hidden class="col-6 soch">
@@ -132,13 +132,13 @@
     </form>
     <form>
         <div hidden id="so-container" class="container">
-            <div id="main-so" class="row">
+            <div class="row">
                 <div class="col-12 input-main">
                     <div class="input-main-text">Суммативная работа</div>
                     <div id="so-main" class="input-so">
-                        <input onchange="OneSO()" id="so1" type="number" min="0" max="100" placeholder="–" class="input-in-so">
+                        <input id="so1" type="number" min="0" max="100" placeholder="–" class="input-in-so">
                         <span class="slash-input">/</span>
-                        <input onchange="OneSO()" id="so2" type="number" min="0" max="100" placeholder="–" class="input-in-so">
+                        <input id="so2" type="number" min="0" max="100" placeholder="–" class="input-in-so">
                     </div> 
                 </div>
             </div>
@@ -150,11 +150,11 @@
         </div>
     </form>
     <div hidden id="fo-container" class="container">
-        <div id="main-so" class="row">
+        <div class="row">
             <div class="col-12 input-main">
                 <div class="input-main-text">Формативная работа</div>
                 <div id="fo-main" class="input-so">
-                    <input onchange="OneFO()" id="fo1" type="number" min="0" max="10" placeholder="–" class="input-in-so">
+                    <input id="fo1" type="number" min="0" max="10" placeholder="–" class="input-in-so">
                     <span class="slash-input">/</span>
                     <span class="input-in-fo">10</span>
                 </div> 
@@ -178,14 +178,14 @@
         <div class="row grade">
             <div class="col-6 left">
                 <div class="all box-fo">
-                    <input onchange="CallOneFO()" type="checkbox" class="custom-checkbox" id="fo-pln" name="fo-pln" value="yes">
-                    <label for="fo-pln">За 1 ФО</label>
+                    <input type="checkbox" class="custom-checkbox" id="mode-fo" name="mode-fo" value="yes">
+                    <label for="mode-fo">За 1 ФО</label>
                 </div>
             </div>
             <div class="col-6 right">
                 <div class="so box">
-                    <input onchange="CallOneSO()" type="checkbox" class="custom-checkbox" id="sor/soch" name="sor/soch" value="yes">
-                    <label for="sor/soch">За 1 СО</label>
+                    <input type="checkbox" class="custom-checkbox" id="mode-so" name="mode-so" value="yes">
+                    <label for="mode-so">За 1 СО</label>
                 </div>
             </div>
         </div>
